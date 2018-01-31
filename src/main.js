@@ -4,9 +4,21 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
+import Vuex from 'vuex'
+import Hermes from './plugins/Hermes'
+import Endpoints from './api/endpoints'
+import VueCookies from 'vue-cookies'
 
 import('../node_modules/vuetify/dist/vuetify.min.css')
 
+Hermes.init({
+	port: 3000,
+	protocol: 'http',
+	baseUrl: 'localhost'
+}, Endpoints)
+
+Vue.use(VueCookies)
+Vue.use(Vuex)
 Vue.use(Vuetify)
 Vue.config.productionTip = false
 
